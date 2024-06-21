@@ -1,0 +1,34 @@
+version: '3'
+services:
+  jaeger:
+      image: jaegertracing/all-in-one:1.22
+      environment:
+        - COLLECTOR_ZIPKIN_HTTP_PORT=9411
+        - COLLECTOR_OTLP_ENABLED=true
+        - COLLECTOR_THRIFT_HTTP_PORT=14268
+        - SPAN_STORAGE_TYPE=memory
+        - COLLECTOR_GRPC_SERVER_MAX_MESSAGE_SIZE=8388608
+        - COLLECTOR_HTTP_SERVER_MAX_MESSAGE_SIZE=8388608
+      ports:
+        - "5775:5775/udp"  # Porta UDP para cliente de legado
+        - "6831:6831/udp"  # Porta UDP para Thrift compactado
+        - "6832:6832/udp"  # Porta UDP para Thrift binário
+        - "5778:5778"
+        - "16686:16686"
+        - "14268:14268"
+        - "14250:14250"
+        - "9411:9411"
+  service1:
+    image: keviocastro/jaeger-service1
+    build: 
+      context: .
+      dockerfile: Dockerfile.service1
+    ports:
+      - "3001:3001"
+  service2:
+    image: keviocastro/jaeger-service2
+    build: 
+      context: .
+      dockerfile: Dockerfile.service2
+    ports:
+      - "3002:3002"

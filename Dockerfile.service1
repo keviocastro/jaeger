@@ -1,0 +1,18 @@
+FROM node:20
+
+WORKDIR /usr/src/app
+
+ENV JAEGER_AGENT_HOST=${JAEGER_AGENT_HOST:-"jaeger"}
+ENV JAEGER_AGENT_PORT=${JAEGER_AGENT_PORT:-"6831"}
+ENV SERVICE_2_HOST=${SERVICE_2_HOST:-"service2"}
+ENV SERVICE_2_PORT=${SERVICE_2_PORT:-"3002"}
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3001
+
+CMD [ "node", "service1.js" ]
