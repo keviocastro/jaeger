@@ -16,8 +16,8 @@ Jaeger Client Libraries (para Node.js, incluído via npm)
 1. Clone o repositório:
 
 ```
-git clone https://github.com/seu-usuario/exemplo-jaeger-node.git
-cd exemplo-jaeger-node
+git clone https://github.com/keviocastro/jaeger.git
+cd jaeger
 ```
 
 2. Instale as dependências:
@@ -77,8 +77,10 @@ exemplo-jaeger-node/
 ├── package.json
 ├── package-lock.json
 └── service1.js
+└── service2.js
 ```
 
+* service1.js: Código-fonte do serviço 1 que envia requisições para o service 2 tambem envia traces para o Jaeger.
 * service1.js: Código-fonte do serviço 1 que envia traces para o Jaeger.
 * docker-compose.yml: Arquivo de configuração do Docker Compose para executar o Jaeger all-in-one e services em docker.
 * package.json: Arquivo de manifesto do Node.js com as dependências do projeto.
