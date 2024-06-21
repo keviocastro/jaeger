@@ -53,7 +53,19 @@ docker-compose up -d jaeger
 Inicie o serviço 1:
 
 ```
-npm start
+node service1.js
+```
+
+Inicie o serviço 2:
+
+```
+node service2.js
+```
+
+De forma alternativa você pode iniciar tudo em docker:
+
+```
+docker compose up 
 ```
 
 ## Visualizando os Traces no Jaeger UI
