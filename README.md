@@ -84,10 +84,8 @@ Abra o Jaeger UI em seu navegador: http://localhost:16686.
 
 ```
 jaeger/
-├── README.md
 ├── docker-compose.yml
 ├── package.json
-├── package-lock.json
 └── service1.js
 └── service2.js
 ```
