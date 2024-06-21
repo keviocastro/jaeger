@@ -83,7 +83,7 @@ Abra o Jaeger UI em seu navegador: http://localhost:16686.
 # Estrutura do Projeto
 
 ```
-exemplo-jaeger-node/
+jaeger/
 ├── README.md
 ├── docker-compose.yml
 ├── package.json
