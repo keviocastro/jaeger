@@ -4,6 +4,7 @@ WORKDIR /usr/src/app
 
 ENV JAEGER_AGENT_HOST=${JAEGER_AGENT_HOST:-"jaeger"}
 ENV JAEGER_AGENT_PORT=${JAEGER_AGENT_PORT:-"6831"}
+ENV JAEGER_COLLECTOR=${JAEGER_COLLECTOR:-"http://jaeger:14268/api/traces"}
 
 COPY package*.json ./
 

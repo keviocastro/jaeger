@@ -23,6 +23,8 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.service1
+    volumes:
+      - ./:/usr/src/app:/app
     ports:
       - "3001:3001"
   service2:
@@ -30,5 +32,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.service2
+    volumes:
+      - ./:/usr/src/app:/app
     ports:
       - "3002:3002"
