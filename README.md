@@ -64,6 +64,26 @@ Abra o Jaeger UI em seu navegador: http://localhost:16686.
 
 * No Jaeger UI, você poderá visualizar e analisar os traces gerados pelas chamadas entre os serviços.
 
+
+## Deployando em kubenetes
+
+
+1. (Se você estiver utilizando kubenetes local) Adicione registros em seu arquivo de hosts para apontar os endereços abaixo para o ip do seu ingress controller.
+
+```
+127.0.0.1 service1.local
+127.0.0.1 service2.local
+127.0.0.1 jaeger.local
+```
+
+2. Faça deploy
+
+```
+kubectl apply -f k8s/
+```
+
+Abra o Jaeger UI em seu navegador: http://jaeger.local
+
 # Estrutura do Projeto
 
 ```
