@@ -22,7 +22,7 @@ services:
     image: keviocastro/jaeger-service-1
     build: 
       context: .
-      dockerfile: Dockerfile.service2
+      dockerfile: Dockerfile.service1
     volumes:
       - ./:/usr/src/app:/app
     ports:
