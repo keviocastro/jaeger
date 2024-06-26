@@ -8,7 +8,7 @@ Este repositório contém um exemplo simples de como integrar o Jaeger para rast
 Antes de iniciar, certifique-se de ter instalado em sua máquina:
 
 Node.js (v12 ou superior)
-Docker (opcional, para executar o Jaeger com Docker Compose)
+Docker
 Jaeger Client Libraries (para Node.js, incluído via npm)
 
 ## Configuração do Projeto
@@ -26,27 +26,11 @@ cd jaeger
 npm install
 ```
 
-3. Configuração do Jaeger:
-
-* Certifique-se de que o Jaeger esteja configurado corretamente. Você pode usar o Jaeger all-in-one via Docker para simplificar o processo de configuração.
-
-* Exemplo de docker-compose.yml para executar o Jaeger all-in-one:
+3. Iniciando o jaeger:
 
 ```
-version: '3'
-services:
-  jaeger:
-    image: jaegertracing/all-in-one:1.22
-    ports:
-      - "6831:6831/udp"
-      - "16686:16686"
-    environment:
-      - COLLECTOR_ZIPKIN_HTTP_PORT=9411
-      - COLLECTOR_THRIFT_PORT=6831
-      - LOG_LEVEL=debug
-```
-
 docker-compose up -d jaeger
+```
 
 4. Executando os Serviços:
 
@@ -86,11 +70,12 @@ Abra o Jaeger UI em seu navegador: http://localhost:16686.
 jaeger/
 ├── docker-compose.yml
 ├── package.json
+└── tracer.js
 └── service1.js
 └── service2.js
 ```
-
+* tracer: Código da configuração de conexão com jaeger,=.
 * service1.js: Código-fonte do serviço 1 que envia requisições para o service 2 tambem envia traces para o Jaeger.
-* service1.js: Código-fonte do serviço 1 que envia traces para o Jaeger.
+* service2.js: Código-fonte do serviço 2 que recebe requisições e também envia traces para o Jaeger.
 * docker-compose.yml: Arquivo de configuração do Docker Compose para executar o Jaeger all-in-one e services em docker.
 * package.json: Arquivo de manifesto do Node.js com as dependências do projeto.

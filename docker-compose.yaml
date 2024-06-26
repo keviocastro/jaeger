@@ -19,16 +19,16 @@ services:
         - "14250:14250"
         - "9411:9411"
   service1:
-    image: keviocastro/jaeger-service1
+    image: keviocastro/jaeger-service-1
     build: 
       context: .
-      dockerfile: Dockerfile.service1
+      dockerfile: Dockerfile.service2
     volumes:
       - ./:/usr/src/app:/app
     ports:
       - "3001:3001"
   service2:
-    image: keviocastro/jaeger-service2
+    image: keviocastro/jaeger-service-2
     build: 
       context: .
       dockerfile: Dockerfile.service2
